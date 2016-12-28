@@ -31,7 +31,7 @@ app.config ([
                 controller: 'Posts.PostsController'
             })
             .state ('posts-view', {
-                url: '/posts/view',
+                url: '/posts/:id',
                 templateUrl: '/templates/posts/view.html',
                 controller: 'Posts.PostsController'
             })

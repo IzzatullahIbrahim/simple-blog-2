@@ -59,6 +59,21 @@ app.controller ('Posts.PostsController', [
             })
         }
 
+        $scope.readById = function (id){
+            // Make a call to the server to find a post object by id.
+            $http ({
+                //Provide the http method (GET, POST, OUT, DELETE).
+                method: 'GET',
+
+                //Provide the ur;
+                url: 'posts/' + id
+            })
+            .success (function (response){
+                console.log ('This is the post object from server: ', response);
+                $scope.post = response;
+            })
+        }
+
         //function for setting up the controller once it is created.
         function setup (){
             var pageState = $state.current.name;
@@ -67,6 +82,11 @@ app.controller ('Posts.PostsController', [
             if (pageState =='posts'){
                 // When in the 'posts' state we need to load in our post objects from the db
                 $scope.readAll();
+            } else if (pageState == 'posts-view'){
+                // When we are in the 'view' state we need to read int the post data by a specific id.
+                var postId = $state.params.id;
+                console.log (' Test ')
+                $scope.readById(postId);
             }
         }
 
