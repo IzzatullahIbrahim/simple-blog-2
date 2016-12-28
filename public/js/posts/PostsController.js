@@ -42,5 +42,35 @@ app.controller ('Posts.PostsController', [
                 console.error ('Something is wrong with the form.');
             }
         }
+
+        $scope.readAll = function (){
+            console.log ('Reading in all posts from the db')
+
+            // Make a call to te server to read all of the posts objects avaible
+            $http({
+                // Specify the http method (GET, POST, PUT ,DELETE)
+                method: 'GET',
+
+                url: '/posts?_sort=views&_order=DESC'
+            })
+            .success(function (response){
+                console.log('The post objects: ', response)
+                $scope.postList = response;
+            })
+        }
+
+        //function for setting up the controller once it is created.
+        function setup (){
+            var pageState = $state.current.name;
+            console.log ('Current page state is ', pageState);
+
+            if (pageState =='posts'){
+                // When in the 'posts' state we need to load in our post objects from the db
+                $scope.readAll();
+            }
+        }
+
+        //run the setup and config for the controller
+        setup();
     }
 ]);

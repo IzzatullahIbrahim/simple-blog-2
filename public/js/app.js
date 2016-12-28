@@ -22,7 +22,8 @@ app.config ([
             })
             .state ('posts', {
                 url: '/posts',
-                templateUrl: '/templates/posts/list.html'
+                templateUrl: '/templates/posts/list.html',
+                controller: 'Posts.PostsController'
             })
             .state ('posts-create', {
                 url: '/posts/create',

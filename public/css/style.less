@@ -12,7 +12,8 @@ body {
         border-color: @color;
         color: @font-color;
 
-        h3 {
+        h2, h3 {
+            font-size:20px;
             margin: 0;
         }
     }
@@ -31,4 +32,15 @@ body {
 .panel-danger {
     // Set the look of the panel.
     .panel-look (#a94442);
+}
+
+.post.list {
+    list-style: none;
+    padding:0;
+    margin-top: 20px;
+
+    .panel-primary {
+        // Set the look of the panel
+        .panel-look (#337ab7)
+    }
 }
