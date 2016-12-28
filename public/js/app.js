@@ -30,6 +30,11 @@ app.config ([
                 templateUrl: '/templates/posts/edit.html',
                 controller: 'Posts.PostsController'
             })
+            .state ('posts-view', {
+                url: '/posts/view',
+                templateUrl: '/templates/posts/view.html',
+                controller: 'Posts.PostsController'
+            })
         ;
     }
 ])
