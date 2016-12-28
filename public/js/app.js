@@ -20,6 +20,15 @@ app.config ([
                 url: '/contact',
                 template: '<h2>Contact Page</h2>'
             })
+            .state ('posts', {
+                url: '/posts',
+                templateUrl: '/templates/posts/list.html'
+            })
+            .state ('posts-create', {
+                url: '/posts/create',
+                templateUrl: '/templates/posts/edit.html',
+                controller: 'Posts.PostsController'
+            })
         ;
     }
 ])

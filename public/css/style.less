@@ -1,3 +1,34 @@
 body {
     padding: 20px;
 }
+
+.panel-look (@color, @font-color: #fff) {
+    // Set the panel styling.
+    border-color: @color;
+
+    // Update the panel header.
+    .panel-heading {
+        background: @color;
+        border-color: @color;
+        color: @font-color;
+
+        h3 {
+            margin: 0;
+        }
+    }
+}
+
+.panel-success {
+    // Set the look of the panel.
+    .panel-look (#5cb85c);
+}
+
+.panel-warning {
+    // Set the look of the panel.
+    .panel-look (#dbd41b);
+}
+
+.panel-danger {
+    // Set the look of the panel.
+    .panel-look (#a94442);
+}
