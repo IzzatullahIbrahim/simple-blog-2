@@ -8,11 +8,11 @@
 
         <title>Simple Blog</title>
 
-        <!-- Load Styling -->
+        <!-- Load Script -->
         <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="/css/style.less" rel="stylesheet" type="text/less">
 
-        <!-- Load Scripts -->
+        <!-- Load JQuery and bootstrap lib -->
         <script src="/lib/jquery/dist/jquery.js"></script>
         <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
 
@@ -36,7 +36,7 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" ui-sref="home">Simple Blog</a>
+                    <a class="navbar-brand" ui-sref="home">Home</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a ui-sref="about">About</a></li>
@@ -47,9 +47,11 @@
         </nav>
 
         <!-- Create an area where the angular html will be injected. -->
-        <div class="panel panel-primary">
-            <div class="panel-body">
-                <div ui-view></div>
+        <div class="blog-content">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div ui-view></div>
+                </div>
             </div>
         </div>
 

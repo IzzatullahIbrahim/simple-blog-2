@@ -11,9 +11,13 @@ app.controller ('Posts.PostsController', [
         // Create a post object to store post data.
         $scope.post = {};
 
-        $scope.create = function () {
-            // Make sure we have a valid form.
+        $scope.create = function (id) {
+            //Make sure we have a valid form.
             if ($scope.editPost.$valid == true) {
+                if(id!=null || id!=undefined){
+                    $scope.update (id);
+                    return;
+                }
                 console.log ('Create a new post object on db: ', $scope.post);
 
                 // Make a request to the server to save
@@ -74,6 +78,33 @@ app.controller ('Posts.PostsController', [
             })
         }
 
+        // Function for updating a post by id
+        $scope.update = function (id){
+            // Make a call to the server to find a post object by id.
+            $http({
+                method: 'PUT',
+                url: '/posts/' + id,
+                data: $scope.post
+            })
+            .success (function (response){
+                // Redirect back to viewing the specific object
+                $state.go ('posts-view', { id:id });
+            })
+        }
+
+        // Function for deleting a post by id
+        $scope.delete =function (id){
+            // Make a call to the server to delete the post object by id
+            $http ({
+                method: 'DELETE',
+                url:'/posts/' +id
+            })
+            .success (function (response){
+                // Redirect back to post listing page
+                $state.go ('posts');
+            })
+        }
+
         //function for setting up the controller once it is created.
         function setup (){
             var pageState = $state.current.name;
@@ -87,6 +118,14 @@ app.controller ('Posts.PostsController', [
                 var postId = $state.params.id;
                 console.log (' Test ')
                 $scope.readById(postId);
+            } else if (pageState == 'posts-edit'){
+                var postId = $state.params.id;
+                $scope.readById (postId);
+                $scope.mode = 'Edit Post';
+                $scope.styleClass = 'warning';
+            } else if (pageState == 'posts-create'){
+                $scope.mode = 'Create Post';
+                $scope.styleClass = 'success';
             }
         }
 

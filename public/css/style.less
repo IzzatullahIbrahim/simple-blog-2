@@ -1,54 +1,43 @@
-body {
-    padding: 20px;
+.blog-content {
+    max-width: 1000px;
+    margin: auto auto;
 }
 
-.panel-look (@color, @font-color: #fff) {
+.navbar {
+    border-radius: 0px;
+}
+
+.panel {
+    border-radius: 0px;
+}
+
+.btn.btn-default {
+    border-radius: 0px;
+}
+
+.panel-look (@color, @font-color) {
     // Set the panel styling.
     border-color: @color;
-
-    // Update the panel header.
-    .panel-heading {
-        background: @color;
-        border-color: @color;
-        color: @font-color;
-
-        h2, h3 {
-            font-size:20px;
-            margin: 0;
-        }
-    }
-}
-
-.panel-success {
-    // Set the look of the panel.
-    .panel-look (#5cb85c);
-}
-
-.panel-warning {
-    // Set the look of the panel.
-    .panel-look (#dbd41b);
-}
-
-.panel-danger {
-    // Set the look of the panel.
-    .panel-look (#a94442);
+    color: @font-color;
 }
 
 .post.list {
     list-style: none;
-    padding:0;
     margin-top: 20px;
 
-    .panel-primary {
+    .panel-heading {
+        background-color: transparent;
+        border-color:transparent;;
+        color: #54A9D2;
+    }
+
+    .panel-body {
+        color: #686363;
+    }
+
+    .panel-default {
         // Set the look of the panel
-        .panel-look (#337ab7);
-
-        .panel-heading {
-            overflow:auto;
-        }
-
-        .btn {
-            float:right;
-        }
+        border:10px solid;
+        .panel-look (#EEEEEE,blue);
     }
 }

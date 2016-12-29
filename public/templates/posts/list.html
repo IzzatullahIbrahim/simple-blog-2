@@ -1,15 +1,16 @@
 <h2>Posts Page</h2>
 
-<a class="btn btn-success" ui-sref="posts-create">Create Post</a>
+<a class="btn btn-default" ui-sref="posts-create">Create Post</a>
 
 <ul class="post list">
     <li ng-repeat="post in postList">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading">
-                <a class="btn btn-default" ui-sref="posts-view ({ id: post.id })">view</a>
                 <h3>{{ post.title}}</h3>
+                <a class="btn btn-default" ui-sref="posts-view ({ id: post.id })">view</a>
             </div>
             <div class="panel-body">
+
                 {{ post.content }}
             </div>
         </div>

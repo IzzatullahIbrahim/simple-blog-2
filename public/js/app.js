@@ -1,4 +1,3 @@
-
 // Create the app module.
 var app = angular.module ('App', ['ui.router']);
 
@@ -33,6 +32,16 @@ app.config ([
             .state ('posts-view', {
                 url: '/posts/:id',
                 templateUrl: '/templates/posts/view.html',
+                controller: 'Posts.PostsController'
+            })
+            .state ('posts-edit', {
+                url: '/posts/:id/edit',
+                templateUrl: '/templates/posts/edit.html',
+                controller: 'Posts.PostsController'
+            })
+            .state ('posts-delete', {
+                url: '/posts/:id/delete',
+                templateUrl: '/templates/posts/delete.html',
                 controller: 'Posts.PostsController'
             })
         ;
